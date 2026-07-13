@@ -6,6 +6,7 @@ var Usuario = sequelize.define('Usuario', {
   email: { type: Sequelize.STRING, allowNull: false, unique: true },
   password: { type: Sequelize.STRING, allowNull: false },
   ciclo: { type: Sequelize.STRING },
+  carrera: { type: Sequelize.STRING },
 });
 
 module.exports = Usuario;
