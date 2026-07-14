@@ -15,7 +15,11 @@ var Mensaje = require('./models/Mensaje');
 var app = express();
 var port = process.env.PORT || 3000;
 
-app.use(cors());
+var origenesPermitidos = process.env.FRONTEND_ORIGINS
+  ? process.env.FRONTEND_ORIGINS.split(',')
+  : 'http://localhost:5173';
+
+app.use(cors({ origin: origenesPermitidos }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
