@@ -13,7 +13,7 @@ var Chat = require('./models/Chat');
 var Mensaje = require('./models/Mensaje');
 
 var app = express();
-var port = 3000;
+var port = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(bodyParser.json());
