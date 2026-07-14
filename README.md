@@ -8,12 +8,22 @@ Descargar el instalador desde https://www.postgresql.org/download/windows/ y dur
 
 ## 2. Configurar la conexion
 
-Editar `server/models/index.js` y poner ahi la contrasena que le pusiste al usuario `postgres` durante la instalacion (reemplazar `'ulimahub123'`).
+La conexion en `models/index.js` usa variables de entorno, con estos valores por defecto si no las configuras:
+
+```
+DB_HOST=localhost
+DB_NAME=ulimahub
+DB_USER=postgres
+DB_PASSWORD=tu_contrasena
+```
+
+Para correrlo en local alcanza con reemplazar la contrasena por la que le pusiste al usuario `postgres`. Si quieres usar otro host, nombre de base, usuario, etc. puedes definir esas variables de entorno en vez de tocar el codigo.
+
+Tambien se puede configurar `FRONTEND_ORIGINS` con la url del frontend (para que el CORS lo deje pasar). Si no se define, por defecto solo permite `http://localhost:5173`.
 
 ## 3. Instalar dependencias y correr
 
 ```
-cd server
 npm install
 npm start
 ```
