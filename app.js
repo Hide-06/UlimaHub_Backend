@@ -367,6 +367,14 @@ app.post('/api/archivos', function (req, res) {
     .catch(manejarError(res));
 });
 
+app.delete('/api/archivos/:id', function (req, res) {
+  Archivo.destroy({ where: { id: req.params.id } })
+    .then(function () {
+      res.json({ ok: true });
+    })
+    .catch(manejarError(res));
+});
+
 // ================= Chats y mensajes (GET, POST) =================
 app.get('/api/chats', function (req, res) {
   Chat.findAll()
